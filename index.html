@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bot Control Panel</title>
+</head>
+<body>
+  <h1>Bot 管理パネル</h1>
+
+  <h2>ステータス変更</h2>
+  <input id="statusInput" placeholder="新しいステータス">
+  <button onclick="updateStatus()">変更</button>
+
+  <h2>メッセージ送信</h2>
+  <input id="channelId" placeholder="チャンネルID">
+  <input id="messageText" placeholder="メッセージ内容">
+  <button onclick="sendMessage()">送信</button>
+
+  <script>
+    async function updateStatus() {
+      const status = document.getElementById('statusInput').value;
+      await fetch('https://your-glitch-project-name.glitch.me/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      alert('ステータス変更しました');
+    }
+
+    async function sendMessage() {
+      const channelId = document.getElementById('channelId').value;
+      const message = document.getElementById('messageText').value;
+      await fetch('https://your-glitch-project-name.glitch.me/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ channelId, message })
+      });
+      alert('メッセージ送信しました');
+    }
+  </script>
+</body>
+</html>

@@ -29,7 +29,7 @@
     async function sendMessage() {
       const channelId = document.getElementById('channelId').value;
       const message = document.getElementById('messageText').value;
-      await fetch('https://your-glitch-project-name.glitch.me/message', {
+      await fetch('https://upbeat-wistful-potassium.glitch.me', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ channelId, message })
